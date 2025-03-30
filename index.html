@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="bn">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ঈদ কার্ড জেনারেটর</title>
+    <link rel="shortcut icon" href="/images/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ঈদ কার্ড জেনারেটর</h1>
+            <p>আপনার প্রিয়জনদের জন্য একটি সুন্দর ঈদ শুভেচ্ছা কার্ড তৈরি করুন</p>
+            <div class="crescent">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+        
+        <div class="content">
+          <div class="preview">
+              <h2>প্রিভিউ</h2>
+              <div class="card-preview template1">
+                  <div class="card-badge">
+                      <i class="fas fa-moon"></i>
+                  </div>
+                  <div class="card-moon">
+                      <!-- <i class="fas fa-moon"></i> -->
+                  </div>
+                  <h2 class="card-title">ঈদ মোবারক</h2>
+                  <div class="card-illustration">
+                      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="100" cy="100" r="80" fill="#4CAF50" opacity="0.2"/>
+                          <circle cx="100" cy="100" r="60" fill="#4CAF50" opacity="0.4"/>
+                          <circle cx="100" cy="100" r="40" fill="#4CAF50" opacity="0.6"/>
+                          <path d="M100,60 L100,140 M60,100 L140,100" stroke="white" stroke-width="5"/>
+                      </svg>
+                  </div>
+                  <div class="card-message">এখানে আপনার মেসেজ লিখুন</div>
+                  <div class="card-name">- আপনার নাম</div>
+              </div>
+              
+              <div class="buttons">
+                  <button id="downloadBtn" class="btn btn-primary">
+                      <i class="fas fa-download"></i> ডাউনলোড করুন
+                  </button>
+                  <button id="shareBtn" class="btn btn-secondary">
+                      <i class="fas fa-share-alt"></i> শেয়ার করুন
+                  </button>
+                  <button id="qrCodeBtn" class="btn btn-dark">
+                    <i class="fas fa-qrcode"></i> QR কোড
+                </button>
+                  <div class="social-share-buttons" style="display: none; margin-top: 10px;">
+                    <button class="btn btn-primary social-btn" data-platform="facebook">
+                        <i class="fab fa-facebook-f"></i> ফেসবুক
+                    </button>
+                    <button class="btn btn-info social-btn" data-platform="twitter">
+                        <i class="fab fa-twitter"></i> টুইটার
+                    </button>
+                    <button class="btn btn-danger social-btn" data-platform="instagram">
+                        <i class="fab fa-instagram"></i> ইনস্টাগ্রাম
+                    </button>
+                    <button class="btn btn-success social-btn" data-platform="whatsapp">
+                        <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ
+                    </button>
+  
+                    <button id="qrCodeBtn" class="btn btn-dark">
+                      <i class="fas fa-qrcode"></i> QR কোড
+                  </button>
+
+                  <!-- QR Code Modal -->
+<div id="qrModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+  <div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; text-align: center;">
+      <h3 style="margin-bottom: 15px;">আপনার ঈদ কার্ডের QR কোড</h3>
+      <p style="margin-bottom: 10px;">এই QR কোড স্ক্যান করে যে কেউ আপনার কার্ড দেখতে পারবে</p>
+      <div id="qrcode" style="margin: 0 auto;"></div>
+      <div style="margin-top: 20px;">
+          <button id="downloadQRBtn" class="btn btn-primary">
+              <i class="fas fa-download"></i> QR কোড ডাউনলোড করুন
+          </button>
+          <button id="closeQRBtn" class="btn btn-secondary" style="margin-left: 10px;">
+              <i class="fas fa-times"></i> বন্ধ করুন
+          </button>
+      </div>
+  </div>
+</div>
+                  
+                  <!-- QR Code Modal -->
+                  <div id="qrModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+                      <div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 90%; text-align: center;">
+                          <h3 style="margin-bottom: 15px;">আপনার ঈদ কার্ডের QR কোড</h3>
+                          <p style="margin-bottom: 10px;">এই QR কোড স্ক্যান করে যে কেউ আপনার কার্ড দেখতে পারবে</p>
+                          <div id="qrcode" style="margin: 0 auto;"></div>
+                          <div style="margin-top: 20px;">
+                              <button id="downloadQRBtn" class="btn btn-primary">
+                                  <i class="fas fa-download"></i> QR কোড ডাউনলোড করুন
+                              </button>
+                              <button id="closeQRBtn" class="btn btn-secondary" style="margin-left: 10px;">
+                                  <i class="fas fa-times"></i> বন্ধ করুন
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+            
+            <div class="controls">
+                <div class="control-section">
+                    <h3>টেমপ্লেট বেছে নিন</h3>
+                    <div class="templates">
+                        <div class="template active" data-template="template1">
+                            <img src="/images/Template1-01.png" alt="টেমপ্লেট ১" />
+                        </div>
+                        <div class="template" data-template="template2">
+                            <img src="/images/Template2-01.png" alt="টেমপ্লেট ২" />
+                        </div>
+                        <div class="template" data-template="template3">
+                            <img src="/images/Template3-01.png" alt="টেমপ্লেট ৩" />
+                        </div>
+                        <div class="template" data-template="template4">
+                            <img src="/images/Template5-01.png" alt="টেমপ্লেট ৪" />
+                        </div>
+                        <div class="template" data-template="template5">
+                            <img src="/images/Template6-01.png" alt="টেমপ্লেট ৫" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="eidTextColor">ঈদ মোবারক লেখার কালার:</label>
+                      <input type="color" id="eidTextColor" value="#4CAF50">
+                  </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>আপনার মেসেজ লিখুন</h3>
+                    <div class="form-group">
+                        <label for="message">মেসেজ:</label>
+                        <textarea id="message" placeholder="আপনার ঈদ শুভেচ্ছা বার্তা লিখুন...">আপনাকে ও আপনার পরিবারকে জানাই ঈদের শুভেচ্ছা। আল্লাহ আপনাদের সবার জীবনে শান্তি ও সমৃদ্ধি বয়ে আনুক।</textarea>
+                        <label for="messageColor">মেসেজের কালার:</label>
+                        <input type="color" id="messageColor" value="#000000">
+                      </div>
+                </div>
+                
+                <div class="control-section">
+                    <h3>আপনার তথ্য</h3>
+                    <div class="form-group">
+                        <label for="name">আপনার নাম:</label>
+                        <input type="text" id="name" placeholder="আপনার নাম লিখুন" value="আবদুল করিম">
+                        <label for="nameColor">নামের কালার:</label>
+                        <input type="color" id="nameColor" value="#000000">
+                    </div>
+                </div>
+
+                <!-- কন্ট্রোল সেকশনে এই কোডটি যোগ করুন (অতিরিক্ত বিকল্প সেকশনের আগে) -->
+<div class="control-section">
+  <h3>নিজের ছবি যুক্ত করুন</h3>
+  <div class="form-group">
+      <label for="userImage">ছবি আপলোড করুন:</label>
+      <input type="file" id="userImage" accept="image/*">
+      <label for="borderColor">ছবির বর্ডারে কালার:</label>
+      <input type="color" id="borderColor" value="#FFD700">
+  </div>
+  <div class="form-group">
+      <label>
+          <input type="checkbox" id="useUserImage">
+          আপলোড করা ছবি ব্যবহার করুন
+      </label>
+  </div>
+</div>
+                
+ <!-- 1. "অতিরিক্ত বিকল্প" সেকশনের আগে (ইউজার ইমেজ সেকশনের পরে) এই নতুন সেকশন যোগ করুন -->
+ <!-- <div class="control-section">
+  <h3>রং পরিবর্তন</h3>
+  <div class="form-group">
+      <label for="messageColor">বার্তার রং:</label>
+      <input type="color" id="messageColor" value="#000000">
+  </div>
+  <div class="form-group">
+      <label for="nameColor">নামের রং:</label>
+      <input type="color" id="nameColor" value="#000000">
+  </div>
+  <div class="form-group">
+      <label for="borderColor">ছবির বর্ডার রং:</label>
+      <input type="color" id="borderColor" value="#FFD700">
+  </div>
+  <div class="form-group">
+      <label for="eidTextColor">ঈদ মোবারক লেখার রং:</label>
+      <input type="color" id="eidTextColor" value="#4CAF50">
+  </div>
+</div> -->
+
+<!-- 2. JavaScript কোড - document.addEventListener('DOMContentLoaded', function() {...} 
+   ব্লকের ভিতরে, মূল ভেরিয়েবল ডিক্লেয়ারেশনের পরে যোগ করুন -->
+
+<!-- // 3. ইনিশিয়ালাইজেশন কোড - স্ক্রিপ্টের শেষে "// Initialize with default values" কমেন্টের নিচে যোগ করুন? -->
+                <!-- <div class="control-section">
+                    <h3>অতিরিক্ত বিকল্প</h3>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="showMoon" checked>
+                            চাঁদ দেখান
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="showIllustration" checked>
+                            ইলাস্ট্রেশন দেখান
+                        </label>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© ২০২৫ ঈদ কার্ড জেনারেটর। সর্বসত্ত্ব সংরক্ষিত || Developed By <a href="https://www.facebook.com/najmolhasan2">Md.Najmol Hasan</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
